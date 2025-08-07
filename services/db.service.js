@@ -7,7 +7,7 @@ export const dbService = { getCollection }
 var dbConn = null
 
 async function getCollection(collectionName) {
-    try { 
+    try {
         const db = await _connect()
         const collection = await db.collection(collectionName)
         return collection

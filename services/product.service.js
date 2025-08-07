@@ -55,13 +55,11 @@ async function update(id, product) {
   // number remains immutable after creation
   const $set = _prepProductForSave(product, { keepNumber: true })
 
-  const { value } = await collection.findOneAndUpdate(
-    { _id },
-    { $set },
-    { returnDocument: 'after' }
-  )
+  const res = await collection.updateOne({ _id }, { $set })
+  if (!res.matchedCount) return null
 
-  return value
+  const savedProduct = await collection.findOne({ _id })
+  return savedProduct
 }
 
 // DELETE /api/product/:id
@@ -119,8 +117,8 @@ function _toObjectId(id) {
 }
 
 async function _getNextSequence(name) {
-  const collection = await dbService.getCollection('counters')
-  await collection.updateOne({ _id:name }, { $inc:{seq:1} }, { upsert:true })
-  const { seq } = await collection.findOne({ _id:name })
+  const collection = await dbService.getCollection(COUNTERS_COLLECTION)
+  await collection.updateOne({ _id: name }, { $inc: { seq: 1 } }, { upsert: true })
+  const { seq } = await collection.findOne({ _id: name })
   return seq
 }

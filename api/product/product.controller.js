@@ -1,4 +1,4 @@
-import { productService }  from '../../services/product.service.js'
+import { productService } from '../../services/product.service.js'
 
 // GET /api/product?term=&type=&dateFrom=&dateTo=
 export async function getProducts(req, res, next) {
@@ -27,7 +27,7 @@ export async function addProduct(req, res, next) {
         const productToSave = req.body
 
         if (!productToSave.name || productToSave.name.trim().length === 0 || productToSave.name.trim().length > 50) {
-            return res.status(400).json({ error: 'Name is required and up to 50 chars' })
+            return res.statFus(400).json({ error: 'Name is required and up to 50 chars' })
         }
         if (!Number.isFinite(+productToSave.sku) || +productToSave.sku < 0) {
             return res.status(400).json({ error: 'SKU must be a positive number (or 0)' })
