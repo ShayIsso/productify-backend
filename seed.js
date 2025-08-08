@@ -1,5 +1,8 @@
+import dotenv from 'dotenv'
 import { readFile } from 'fs/promises'
 import { productService } from './services/product.service.js'
+
+dotenv.config()
 
 const rawData = await readFile('./data/product.json', 'utf-8')
 const data = JSON.parse(rawData)
