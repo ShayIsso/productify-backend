@@ -38,7 +38,8 @@ app.get('/*all', (req, res) => {
   res.sendFile(path.resolve('public/index.html'))
 })
 
+import { logger } from './services/logger.service.js'
 const port = process.env.PORT || 3030
 server.listen(port, () => {
-  console.log(`✅ Server is running on: http://localhost:${port}/`)
+  logger.info('Server is running on: ' + `http://localhost:${port}/`)
 })

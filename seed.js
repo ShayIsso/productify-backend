@@ -1,6 +1,7 @@
 import dotenv from 'dotenv'
 import { readFile } from 'fs/promises'
 import { productService } from './services/product.service.js'
+import { logger } from './services/logger.service.js'
 
 dotenv.config()
 
@@ -10,10 +11,11 @@ const data = JSON.parse(rawData)
 for (const product of data) {
   try {
     await productService.add(product)
+    logger.info(`Added product: ${product.name}`)
   } catch (err) {
-    console.error('❌ Failed to add product:', product.name, err.message)
+    logger.error(`Failed to add product: ${product.name}`, err.message)
   }
 }
 
-console.log('✅ Seeding done!')
+logger.info('Seeding done!')
 process.exit()

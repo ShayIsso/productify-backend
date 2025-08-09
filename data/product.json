@@ -61,12 +61,5 @@
     "description": "Fresh and green",
     "type": "vegetable",
     "marketingDate": "2025-08-01"
-  },
-  {
-    "name": "Orange",
-    "sku": 1010,
-    "description": "Juicy and rich in vitamin C",
-    "type": "fruit",
-    "marketingDate": "2025-08-02"
   }
 ]
