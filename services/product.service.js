@@ -1,7 +1,7 @@
 import { ObjectId } from 'mongodb'
 
 import { dbService } from './db.service.js'
-import { clampDateRange, weekAgoDateStr } from '../../services/util.service.js'
+import { clampDateRange, weekAgoDateStr } from './util.service.js'
 
 const COLLECTION_NAME = 'product'
 const COUNTERS_COLLECTION = 'counters'
