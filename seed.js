@@ -18,4 +18,3 @@ for (const product of data) {
 }
 
 logger.info('Seeding done!')
-process.exit()
