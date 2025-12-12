@@ -34,7 +34,7 @@ if (process.env.NODE_ENV === 'production') {
 app.use('/api/product', productRoutes)
 
 // Fallback for SPA routing
-app.get('/*all', (req, res) => {
+app.get('*', (req, res) => {
   res.sendFile(path.resolve('public/index.html'))
 })
 
