@@ -34,8 +34,8 @@ Productify backend is a **Node.js + Express** server with a **MongoDB Atlas** da
 4. **Configure environment variables**  
    Update `.env` with your own connection details in place of `<username>` and `<password>`:
    ```env
-   MONGO_URL=mongodb+srv://<username>:<password>@cluster0.mongodb.net/
-   DB_NAME=productify
+   ATLAS_URL=mongodb+srv://<username>:<password>@cluster0.mongodb.net/
+   ATLAS_DBNAME=product_db
    PORT=3030
    ```
 5. **Seed the database** (must be done before starting the server):
