@@ -1,6 +1,10 @@
-export const config = {
-    get dbURL() {
-        return process.env.MONGO_URL || 'mongodb://127.0.0.1:27017'
-    },
-    dbName: 'product_db',
+import configProd from './prod.js'
+import configDev from './dev.js'
+
+export var config
+
+if (process.env.NODE_ENV === 'production') {
+    config = configProd
+} else {
+    config = configDev
 }
